@@ -80,21 +80,23 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center"
-        android:background="@drawable/mainbtn"
-        android:padding="10dp"
+
+        android:padding="5dp"
         android:layout_marginTop="10dp"
         android:visibility="gone">
 
         <ImageView
             android:id="@+id/avatarIcon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             app:tint="@color/white"
             android:src="@drawable/user"
             android:layout_marginRight="10dp"/>
 
         <ScrollView
             android:layout_width="0dp"
+            android:padding="5dp"
+            android:background="@drawable/mainbtn"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
@@ -104,6 +106,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:textSize="18sp"
+
+
                 android:textColor="@color/white"/>
         </ScrollView>
     </LinearLayout>
