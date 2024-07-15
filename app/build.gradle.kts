@@ -55,5 +55,6 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.glide)
     annotationProcessor(libs.compiler)
+    implementation(libs.generativeai)
 
 }

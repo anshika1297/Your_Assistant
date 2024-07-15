@@ -1,126 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/mainbg"
+    android:padding="15dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
-        android:text="@string/app_name"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-
-        android:textStyle="bold"
-        android:fontFamily="@font/poppins_regular"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-         />
-    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:layout_marginVertical="20dp">
+
         <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/logo" />
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/logo"
+            android:layout_marginRight="20dp"/>
 
         <TextView
-
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="80dp"
-            android:text="'Your AI Assistant' is your personal AI chatBot capable of giving answers of your Queries and Generating Images according to your Prompts. So, Hold Tight and Enjoy your personal AI Assitsant to make your work easier"
-            android:textColor="@color/white"
-            android:textSize="17sp"
             android:gravity="center"
-           android:padding="20dp"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="italic"
             android:fontFamily="@font/poppins_regular"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            />
-
-
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"/>
     </LinearLayout>
-    
-    <LinearLayout
 
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:weightSum="2"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp">
+        android:background="@color/white"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp">
 
-
-       <LinearLayout
-           android:id="@+id/buttonChat"
-           android:layout_width="0dp"
-           android:layout_height="90dp"
-           android:layout_weight="1"
-           android:layout_margin="10dp"
-           android:orientation="vertical"
-          android:gravity="center"
-           android:background="@drawable/mainbtn">
-
-           <ImageView
-               android:layout_width="40dp"
-               android:layout_marginTop="10dp"
-               android:layout_height="40dp"
-               android:src="@drawable/online_chat"
-
-               app:tint="@color/white"
-               />
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="match_parent"
-               android:layout_gravity="center_horizontal"
-               android:gravity="center"
-               android:text="Chat with AI"
-               android:textStyle="bold"
-               android:textColor="@color/white"
-               android:textSize="17sp"
-               android:fontFamily="@font/poppins_regular"/>
-       </LinearLayout>
-        <LinearLayout
-            android:id="@+id/buttonImage"
+        <EditText
+            android:id="@+id/editText"
             android:layout_width="0dp"
-            android:layout_height="90dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="10dp"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:background="@drawable/mainbtn">
+            android:layout_marginRight="10dp"
+            android:ems="10"
+            android:hint="Enter your Prompt"
+            android:textColorHint="@color/white"
+            android:inputType="text"/>
 
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_marginTop="10dp"
-                android:layout_height="35dp"
-                android:src="@drawable/voicetoimg"
-
-                app:tint="@color/white"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:text="Image Generator"
-                android:textColor="@color/white"
-                android:textSize="17sp"
-                android:fontFamily="@font/poppins_regular"/>
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/sendButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/send"/>
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/textViewResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:text="Result Displayed Here"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/resultLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:background="@drawable/mainbtn"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/avatarIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:tint="@color/white"
+            android:src="@drawable/user"
+            android:layout_marginRight="10dp"/>
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/resultText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:textSize="18sp"
+                android:textColor="@color/white"/>
+        </ScrollView>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:padding="40dp"
+        android:layout_gravity="center"
+        style="?android:attr/progressBarStyleLarge"/>
 </LinearLayout>
